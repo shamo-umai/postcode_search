@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <title>住所検索</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+        <header>
+            <h1>住所検索</h1>
+        </header>
+        <div id="content">
+            <div id="select_All">
+                <div id="title_All">
+                    <h5 class="title" id="kensaku">住所を検索する</h5>
+                </div>
+                <div id="select">
+                    <div id="pref_sel_All">
+                        <div id="pref_block">
+                            <div id="label_edit">
+                                <label for="pref_sel">都道府県<span>※現在は九州地方のみ ※選択必須</span></label>
+                            </div>
+                            <div>
+                                <select id="pref_sel">
+                                    <option value="">----都道府県を選択----</option>
+                                    <option value="Fukuoka">福岡県</option>
+                                    <option value="Saga">佐賀県</option>
+                                    <option value="Nagasaki">長崎県</option>
+                                    <option value="Kumamoto">熊本県</option>
+                                    <option value="Oita">大分県</option>
+                                    <option value="Miyazaki">宮崎県</option>
+                                    <option value="Kagoshima">鹿児島県</option>
+                                    <option value="Okinawa">沖縄県</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="form_group">
+                        <div class="form_item">
+                            <label for="post_code">郵便番号(７桁まで入力)<span>※部分検索可能</span></label>
+                            <input type="text" name="post_code" maxlength="7" id="post_code" disabled
+                                placeholder="半角数字のみ入力">
+                            <!-- disabled:無効にする-->
+                        </div>
+                        <div class="form_item">
+                            <label for="search_keyword">検索キーワード</label>
+                            <input type="text" name="city" id="search_keyword" disabled placeholder="例：中央区 天神">
+                        </div>
+
+                    </div>
+
+                    <!-- AND/OR切り替え-->
+                    <div id="mode_block">
+                        <div id="mode">
+                            <input type="radio" name="mode" value="AND" id="and" checked><label for="and">AND</label>
+                            <input type="radio" name="mode" value="OR" id="or"><label for="or">&nbsp;OR&nbsp;</label>
+                        </div>
+                        <div id="btn_edit">
+                            <input type="button" value="入力内容をクリア" id="btn_clear">
+                            <input type="button" value="検索" id="btn_All">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--地図-->
+            <div id="map_area">
+                <iframe id="map_iframe" style="border:0" loading="lazy" allowfullscreen>
+                </iframe>
+            </div>
+
+            <table id="result_table">
+                <caption>検索結果　(住所を選択すると表の上に地図が表示されます)</caption>
+                <thead>
+                    <tr>
+                        <th class="th_width">郵便番号</th>
+                        <th class="th_width">都道府県</th>
+                        <th class="th_width2">市区町村</th>
+                        <th>町域名</th>
+                        <th>町域名(フリガナ)</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_search"></tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <button class="page-top"><i class="fa-solid fa-arrow-up"></i>PAGE TOP</button>
+        </div>
+        <footer>
+            <div id="footer_area"></div>
+        </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
